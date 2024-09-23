@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Youtube downloader</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <h2>Youtube Video Downloader</h2>
+    </nav>
+    <div id="welcome"><h1>Welcome to <span>YOUTUBE</span> video downloader</h1></div>
+<div class="textbar">
+     
+<input type="text" id="videoUrl" placeholder="Enter YouTube URL" />
+<button onclick="downloadVideo()">Download Video</button>
+
+</div>
+
+<script>
+    async function downloadVideo() {
+        const videoUrl = document.getElementById("videoUrl").value;
+        const formData = new FormData();
+        formData.append("video_url", videoUrl);
+        formData.append("save_path", './downloads');
+
+        const response = await fetch('http://localhost:8000/download/', {
+            method: 'POST',
+            body: formData
+        });
+
+        const result = await response.json();
+        if (result.status === 'success') {
+            alert("Download completed!");
+        } else {
+            alert(`Error: ${result.message}`);
+        }
+    }
+</script>
+
+</body>
+</html>

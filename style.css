@@ -1,0 +1,31 @@
+ 
+.navbar{
+    background-color: aqua;
+    padding: 8px;
+    text-align: center;
+
+}
+#welcome{
+  text-align: center;
+}
+span{
+  color: red;
+}
+.textbar{
+    margin: 0;
+    justify-items: center;
+    text-align: center;
+    position: relative;
+    top: 200px;
+}
+#videoUrl{
+  padding: 10px;
+  width: 300px;
+}
+.textbar button{
+   padding: 10px;
+   background-color: brown;
+   color: aliceblue;
+   position: relative;
+   right: 10px;
+}
