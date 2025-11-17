@@ -6,6 +6,7 @@ from fastapi import FastAPI, Form
 from fastapi.responses import JSONResponse
 
 app = FastAPI()
+app = FastAPI(title="Duplicate App")  
 
 origins = [
     "http://localhost",
@@ -41,3 +42,4 @@ def download_youtube_video(video_url, save_path='.'):
 async def download_video(video_url: str = Form(...), save_path: str = Form('./downloads')):
     result = download_youtube_video(video_url, save_path)
     return JSONResponse(content=result)
+
